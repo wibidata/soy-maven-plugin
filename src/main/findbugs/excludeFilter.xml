@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  (c) Copyright 2012 WibiData, Inc.
+-->
+<FindBugsFilter>
+  <!-- The maven plugin framework will set these fields with reflection,
+       but findbugs thinks they are never set. -->
+  <Match>
+    <Or>
+      <Class name="com.odiago.maven.plugins.soy.CompileMojo"/>
+      <Class name="com.odiago.maven.plugins.soy.HelpMojo"/>
+    </Or>
+    <Or>
+      <Field name="detail"/>
+      <Field name="goal"/>
+      <Field name="mOutputDirectory"/>
+    </Or>
+    <Or>
+      <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+      <Bug pattern="UUF_UNUSED_FIELD"/>
+    </Or>
+  </Match>
+</FindBugsFilter>
