@@ -37,4 +37,11 @@ Usage
         <!-- ... -->
       </plugins>
     </build>
+
+    <pluginRepositories>
+      <pluginRepository>
+        <id>soy-maven-plugin</id>
+        <url>http://wibidata.github.com/soy-maven-plugin/repo</url>
+      </pluginRepository>
+    </pluginRepositories>
 +---
