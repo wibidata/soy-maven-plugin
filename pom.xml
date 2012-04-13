@@ -20,7 +20,7 @@
 
   <groupId>com.odiago.maven.plugins</groupId>
   <artifactId>soy-maven-plugin</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>maven-plugin</packaging>
 
   <name>soy-maven-plugin</name>
