@@ -1,0 +1,40 @@
+Usage
+
+  This plugin is used to compile soy templates (Google Closure Templates)
+  into javascript files.  Typically, you will bind the `compile` goal to your
+  `process-sources` or `compile` phase.
+
+
+* Compiling soy templates.
+
+  To bind the goal to its default phase (process-sources), add
+  the following to the build plugins section of your pom.xml file:
+
++---
+    <build>
+      <plugins>
+        <!-- ... -->
+        <plugin>
+          <groupId>com.odiago.maven.plugins</groupId>
+          <artifactId>soy-maven-plugin</artifactId>
+          <version>${version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>compile</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <inputFiles>
+              <directory>${basedir}/src/main/resources/soy</directory>
+              <includes>
+                <include>**/*.soy</include>
+              </includes>
+            </inputFiles>
+          </configuration>
+        </plugin>
+        <!-- ... -->
+      </plugins>
+    </build>
++---

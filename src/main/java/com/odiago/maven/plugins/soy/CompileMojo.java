@@ -29,6 +29,7 @@ public class CompileMojo extends AbstractMojo {
    * The soy files to be compiled into javascript files.
    *
    * @parameter property="inputFiles"
+   * @required
    */
   private FileSet mInputFiles;
 
