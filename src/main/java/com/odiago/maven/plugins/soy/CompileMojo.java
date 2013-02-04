@@ -20,6 +20,7 @@ package com.odiago.maven.plugins.soy;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.IllegalStateException;
 import java.io.Writer;
 import java.util.Collections;
 import java.util.List;
@@ -161,6 +162,10 @@ public class CompileMojo extends AbstractMojo {
     }
     for (int i = 0; i < inputFilenames.length; i++) {
       File outputFile = new File(mOutputDirectory, inputFilenames[i] + ".js");
+      File parent = outputFile.getParentFile();
+      if(!parent.exists() && !parent.mkdirs()){
+        throw new IllegalStateException("Couldn't create dir: " + parent);
+      }
       getLog().info("Writing compiled soy: " + outputFile);
       Writer writer = null;
       try {
