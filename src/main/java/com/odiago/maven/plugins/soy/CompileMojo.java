@@ -161,6 +161,10 @@ public class CompileMojo extends AbstractMojo {
     }
     for (int i = 0; i < inputFilenames.length; i++) {
       File outputFile = new File(mOutputDirectory, inputFilenames[i] + ".js");
+      File parent = outputFile.getParentFile();
+      if(!parent.exists() && !parent.mkdirs()){
+        throw new IllegalStateException("Couldn't create dir: " + parent);
+      }
       getLog().info("Writing compiled soy: " + outputFile);
       Writer writer = null;
       try {
